@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="user" extends="struts-default" namespace="/">
+		<action name="userToList" class="com.sunyanxiong.action.UserAction" method="toList">
+			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
+		</action>
+		
+		<action name="userToAdd" class="com.sunyanxiong.action.UserAction" method="toAdd">
+			<result name="toAdd">/WEB-INF/pages/addUser.jsp</result>
+		</action>
+		
+		<action name="userAdd" class="com.sunyanxiong.action.UserAction" method="add">
+			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
