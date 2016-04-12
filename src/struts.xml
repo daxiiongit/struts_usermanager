@@ -18,6 +18,10 @@
 			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
 		</action>
 		
+		<action name="userDelete" class="com.sunyanxiong.action.UserAction" method="delete">
+			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
+		</action>
+		
 	</package>
 
 </struts>

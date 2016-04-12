@@ -63,4 +63,11 @@ public class UserAction extends ActionSupport{
 		return this.toList(); // 调用toList方法，回到显示页面 
 	}
 	
+	public String delete(){
+		UserBiz userBiz = new UserBizImpl();
+		userBiz.deleteUser(user.getId());
+		return this.toList();
+	}
+	
+	
 }

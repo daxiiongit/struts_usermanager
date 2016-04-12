@@ -17,6 +17,10 @@
 }
 </style>
 
+<script type="text/javascript">
+	
+</script>
+
 </head>
 <body>
 
@@ -50,7 +54,9 @@
 			 		<td><s:property value="age"/></td>
 			 		<td><s:property value="telephone"/></td>
 			 		<td><s:property value="school"/></td>
-			 		<td>删除</td>
+			 		<td>
+			 			<a href="userDelete?user.id=<s:property value='id'/>" onclick="if(confirm('确定删除吗？')==false)return false">删除</a>
+			 		</td>
 			 		<td>修改</td>
 			 	</tr>
 			 </s:iterator>

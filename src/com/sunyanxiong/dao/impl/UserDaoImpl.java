@@ -78,4 +78,22 @@ public class UserDaoImpl extends BaseDao implements UserDao{
 		return result;
 	}
 
+	@Override
+	public int deleteUser(int id) {
+		int result = 0;
+		String sql = "delete from userinfo where id=?";
+		try {
+			con = this.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			result = pstmt.executeUpdate();
+			if(result != 0){
+				System.out.println("删除了 id 为" + id + "的记录!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }
