@@ -82,4 +82,12 @@ public class UserAction extends ActionSupport{
 		userBiz.updateUser(user);
 		return this.toList();
 	}
+	
+	// 用户详情
+	public String toDetail(){
+		UserBiz userBiz = new UserBizImpl();
+		user = userBiz.getUserById(user.getId());
+		return "toDetail";
+		
+	}
 }

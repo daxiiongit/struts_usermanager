@@ -5,6 +5,9 @@
 
 <struts>
 
+	<!-- 加入国际化 -->
+	<constant name="struts.locale" value="zh_CN"></constant>
+
 	<package name="user" extends="struts-default" namespace="/">
 		<action name="userToList" class="com.sunyanxiong.action.UserAction" method="toList">
 			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
@@ -28,6 +31,10 @@
 		
 		<action name="userUpdate" class="com.sunyanxiong.action.UserAction" method="update">
 			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
+		</action>
+		
+		<action name="userToDetail" class="com.sunyanxiong.action.UserAction" method="toDetail">
+			<result name="toDetail">/WEB-INF/pages/detail-user.jsp</result>
 		</action>
 		
 	</package>

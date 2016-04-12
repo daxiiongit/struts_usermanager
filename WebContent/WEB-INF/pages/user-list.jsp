@@ -45,6 +45,7 @@
 			 	<td>学校</td>
 			 	<td>删除</td>
 			 	<td>修改</td>
+			 	<td>详情</td>
 			 </tr>
 			 
 			 <s:iterator value="list">
@@ -59,6 +60,7 @@
 			 			<a href="userDelete?user.id=<s:property value='id'/>" onclick="if(confirm('确定删除吗？')==false)return false">删除</a>
 			 		</td>
 			 		<td><a href="userToUpdate?user.id=<s:property value='id'/>">修改</a></td>
+			 		<td><a href="userToDetail?user.id=<s:property value="id"/>">详情</a></td>
 			 	</tr>
 			 </s:iterator>
 		</table>
