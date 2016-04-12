@@ -22,6 +22,14 @@
 			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
 		</action>
 		
+		<action name="userToUpdate" class="com.sunyanxiong.action.UserAction" method="toUpdate">
+			<result name="toUpdate">/WEB-INF/pages/updateUser.jsp</result>
+		</action>
+		
+		<action name="userUpdate" class="com.sunyanxiong.action.UserAction" method="update">
+			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
+		</action>
+		
 	</package>
 
 </struts>

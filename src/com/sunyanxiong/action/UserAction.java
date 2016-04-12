@@ -69,5 +69,17 @@ public class UserAction extends ActionSupport{
 		return this.toList();
 	}
 	
+	// 修改用户信息的回显逻辑
+	public String toUpdate(){
+		UserBiz userBiz = new UserBizImpl();
+		user = userBiz.getUserById(user.getId());
+		return "toUpdate";
+	}
 	
+    // 修改数据 
+	public String update(){
+		UserBiz userBiz = new UserBizImpl();
+		userBiz.updateUser(user);
+		return this.toList();
+	}
 }

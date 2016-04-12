@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.jndi.cosnaming.CNCtx;
 import com.sunyanxiong.bean.User;
 import com.sunyanxiong.dao.BaseDao;
 import com.sunyanxiong.dao.UserDao;
@@ -94,6 +95,63 @@ public class UserDaoImpl extends BaseDao implements UserDao{
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public int updateUser(User u) {
+		int result = 0;
+		String sql = "update userinfo set name=?,sex=?,age=?,telephone=?,email=?,specialty=?,school=?,address=? where id=" + u.getId();
+		try {
+			con = this.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, u.getName());
+			pstmt.setString(2, u.getSex());
+			pstmt.setInt(3, u.getAge());
+			pstmt.setString(4, u.getTelephone());
+			pstmt.setString(5, u.getEmail());
+			pstmt.setString(6, u.getSpecialty());
+			pstmt.setString(7, u.getSchool());
+			pstmt.setString(8, u.getAddress());
+			
+			result = pstmt.executeUpdate();
+			if(result != 0){
+				System.out.println("修改了一条数据！");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			this.closeAll(con, pstmt, rs);
+		}
+		return result;
+	}
+
+	@Override
+	public User getUserById(int id) {
+		User u = null;
+		String sql = "select * from userinfo where id=" + id;
+		try {
+			con = this.getConnection();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			u = new User();
+			if(rs.next()){
+				u.setId(rs.getInt("id"));    // 将当前记录的id放到修改域中
+				u.setName(rs.getString("name"));
+				u.setSex(rs.getString("sex"));
+				u.setAge(rs.getInt("age"));
+				u.setTelephone(rs.getString("telephone"));
+				u.setEmail(rs.getString("email"));
+				u.setSpecialty(rs.getString("specialty"));
+				u.setSchool(rs.getString("school"));
+				u.setAddress(rs.getString("address"));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			this.closeAll(con, pstmt, rs);
+		}
+		return u;
 	}
 
 }
