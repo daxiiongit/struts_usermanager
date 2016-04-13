@@ -19,6 +19,7 @@
 		
 		<action name="userAdd" class="com.sunyanxiong.action.UserAction" method="add">
 			<result name="toList">/WEB-INF/pages/user-list.jsp</result>
+			<result name="input">/WEB-INF/pages/addUser.jsp</result>
 		</action>
 		
 		<action name="userDelete" class="com.sunyanxiong.action.UserAction" method="delete">
