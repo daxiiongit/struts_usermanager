@@ -14,7 +14,7 @@
 		<s:form action="userUpdate" method="post">
 			<table width="300" border="1" bordercolor="#99CCFF" bgcolor="#FFFFEE">
 				<!-- 添加隐藏域，获取当前修改数据的id -->
-				<s:hidden><s:textfield name="user.id" label="ID号"/></s:hidden>
+				<s:hidden name="user.id"></s:hidden>
 				<s:textfield name="user.name" label="姓名"/>
 				<s:select name="user.sex" list="sexs" label="性别"/>
 				<s:textfield name="user.age" label="年龄"/>
